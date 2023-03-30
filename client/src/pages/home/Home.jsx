@@ -1,8 +1,13 @@
+import Navbar from "../../components/navbar/Navbar"
+import "./home.scss"
 import React from 'react'
 
 function Home() {
   return (
-    <div>Home</div>
+    <div className="home">
+      <Navbar/> 
+      <img width ="100%" src="https://pbs.twimg.com/media/C1N_8R2WEAABYWK.jpg" alt="" />
+    </div>
   )
 }
 
