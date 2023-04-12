@@ -21,7 +21,7 @@
         width: 400px;
     }
 
-    .decs{
+    .decriptions{
         margin: 20px 0px;
         font-size: 16 px;
     }
@@ -41,12 +41,12 @@
             margin-right: 10px;
             cursor: pointer;
 
-            &.play {
+            &.playbutton {
                 background-color: white;
                 color: var(--main-color);
               }
             
-              &.more {
+              &.info {
                 background-color: blue;
                 color: white;
               }
