@@ -1,20 +1,69 @@
 import { useRef } from "react";
 import { useState } from "react";
 import "./register.scss"
+import {Link, useNavigate } from "react-router-dom";
+//import { ToastContainer, toast } from 'react-toastify';
+import {registerfunction} from "../../services/Apis";
+
 
 export default function Register() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [passhow,setPassShow] = useState(false);
 
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const [inputdata,setInputdata] = useState({
+    fname:"",
+    email:"",
+    password:""
+  });
 
-  const handleStart = () => {
-    setEmail(emailRef.current.value);
-  };
-  const handleFinish = () => {
-    setPassword(passwordRef.current.value);
-  };
+  const navigate = useNavigate();
+  
+   // setinputvalue
+   const handleChange = (e)=>{
+    const {name,value} = e.target;
+    setInputdata({...inputdata,[name]:value})
+  }
+
+    // register data
+    const handleSubmit = async(e)=>{
+      e.preventDefault();
+      const {fname,email,password} = inputdata;
+  
+      if(fname === ""){
+  
+        // toast.error("Enter Your Name")
+  
+      }else if(email === ""){
+  
+        // toast.error("Enter Your Email")
+  
+      }else if(!email.includes("@")){
+  
+        // toast.error("Enter Valid Email")
+  
+      }else if(password === ""){
+  
+        // toast.error("Enter Your Password")
+  
+      }else if(password.length < 6){
+  
+        // toast.error("password length minimum 6 character")
+  
+      }else{
+  
+      //  // const response = await registerfunction(inputdata);
+        
+      //   if(response.status === 200){
+  
+      //    // setInputdata({...inputdata,fname:"",email:"",password:""});
+  
+      //     navigate("/")
+  
+      //   }else{
+          
+      //     // toast.error(response.response.data.error);
+      //   }
+      }
+    }
 
   return (
     <div className="register">
@@ -26,34 +75,35 @@ export default function Register() {
         alt=""
         />
 
+        
+
         <button className="loginButton">Sign In</button>
 
         </div>
       </div>
       <div className="container">
-        <h1>Unlimited movies, TV shows, and more.</h1>
-        <h2>Watch anywhere. Cancel anytime.</h2>
-        <p>
-          Ready to watch? Enter your email to create or restart your membership.
-        </p>
+     
 
-        {!email ? (
-          <div className="input">
-          <input type="email" placeholder="email address" ref={emailRef} />
-          <button className="registerButton" onClick={handleStart}>
-            Get Started
-          </button>
-        </div>
-        ) : (
-          <form className="input">
-            <input type="password" placeholder="password" ref={passwordRef} />
-            <button className="registerButton" onClick={handleFinish}>
-              Start
-            </button>
-          </form>
-        )}
+      <form>
+                    <h1>SIGN UP</h1>
+                    <input type="text" name="fname" id="" onChange={handleChange} placeholder='Enter Your Name' />
+                    <input type="email" name="email" id=""  onChange={handleChange}  placeholder='Enter Your Email Address' />
+                    <input type={!passhow ? "password" : "text"} name="password" id=""  onChange={handleChange}  placeholder='Enter Your password' />
+                
+                    <div onClick={()=>setPassShow(!passhow)} >
+              {!passhow ? "Show" : "Hide"}
+              </div>
+                    <button className="loginButton"onClick={handleSubmit}>Sign Up</button>
+                   
+
+                    <small>
+                    This page is protected by Google reCAPTCHA to ensure you're not a bot.
+                    <b>Learn more</b>
+                    </small>
+                </form>
 
       </div>
+      {/* <ToastContainer /> */}
     </div>
   );
 }
