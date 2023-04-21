@@ -1,13 +1,13 @@
 .watch {
-    width: 150vw;
-    height: 150vh;
+    width: 100vw;
+    height: 99vh;
   
     .back {
       display: flex;
       align-items: center;
       position: absolute;
-      top: 20px;
-      left: 20px;
+      top: 10px;
+      left: 10px;
       color: white;
       cursor: pointer;
       z-index: 2;
