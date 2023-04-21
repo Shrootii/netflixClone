@@ -3,7 +3,6 @@ import { useState } from "react";
 import "./register.scss"
 import {Link, useNavigate } from "react-router-dom";
 //import { ToastContainer, toast } from 'react-toastify';
-import {registerfunction} from "../../services/Apis";
 
 
 export default function Register() {
