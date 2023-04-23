@@ -16,7 +16,7 @@ export default function Listitem() {
   
   return (
     <div className="listitem" 
-    style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+  //  style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
     onMouseEnter={() => setIsHovered(true)} 
     onMouseLeave={() => setIsHovered(false)}
     >
@@ -32,10 +32,10 @@ export default function Listitem() {
              <video src = {trailer} autoPlay={true} loop />
              <div className="itemInfo">
               <div className="icons">
-               <PlayArrow/>
-               <Add/>
-               <ThumbUpAltOutlined/>
-               <ThumbDownOutlined/>
+               <PlayCircleOutlineOutlinedIcon/>
+               <AddCircleOutlineOutlinedIcon/>
+               <ThumbUpAltOutlinedIcon/>
+               <ThumbDownOffAltOutlinedIcon/>
               </div>
             <div className="itemInfoTop">
              <span>1 hour 20 minutes</span>

@@ -3,13 +3,14 @@ import { useState } from "react";
 import "./register.scss"
 import {Link, useNavigate } from "react-router-dom";
 //import { ToastContainer, toast } from 'react-toastify';
+import {registerfunction} from "../../services/Apis";
 
 
 export default function Register() {
   const [passhow,setPassShow] = useState(false);
 
   const [inputdata,setInputdata] = useState({
-    fname:"",
+    username:"",
     email:"",
     password:""
   });
@@ -25,9 +26,9 @@ export default function Register() {
     // register data
     const handleSubmit = async(e)=>{
       e.preventDefault();
-      const {fname,email,password} = inputdata;
+      const {username,email,password} = inputdata;
   
-      if(fname === ""){
+      if(username === ""){
   
         // toast.error("Enter Your Name")
   
@@ -49,18 +50,18 @@ export default function Register() {
   
       }else{
   
-      //  // const response = await registerfunction(inputdata);
+        const response = await registerfunction(inputdata);
         
-      //   if(response.status === 200){
+        if(response.status === 200){
   
-      //    // setInputdata({...inputdata,fname:"",email:"",password:""});
+          setInputdata({...inputdata,username:"",email:"",password:""});
   
-      //     navigate("/")
+          navigate("/")
   
-      //   }else{
-          
-      //     // toast.error(response.response.data.error);
-      //   }
+        }else{
+          console.log("error here")
+          // toast.error(response.response.data.error);
+        }
       }
     }
 
@@ -85,7 +86,7 @@ export default function Register() {
 
       <form>
                     <h1>SIGN UP</h1>
-                    <input type="text" name="fname" id="" onChange={handleChange} placeholder='Enter Your Name' />
+                    <input type="text" name="username" id="" onChange={handleChange} placeholder='Enter Your Name' />
                     <input type="email" name="email" id=""  onChange={handleChange}  placeholder='Enter Your Email Address' />
                     <input type={!passhow ? "password" : "text"} name="password" id=""  onChange={handleChange}  placeholder='Enter Your password' />
                 

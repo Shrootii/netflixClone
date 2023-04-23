@@ -1,6 +1,6 @@
 
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
-import "./featured.scss";
+import "./feature.scss";
 
 export default function Featured({ type }) {
   return (
@@ -55,4 +55,4 @@ export default function Featured({ type }) {
       </div>
     </div>
   );
-
+      }
