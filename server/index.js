@@ -5,11 +5,6 @@ require("./db/conn");
 const cors = require('cors');
 app.use(cors());
 
-const getmovie=require("./routes/movies")
-const register=require("./routes/Authentication")
-const userRoute = require("./routes/subscribers");
-const cors = require('cors');
-app.use(cors());
 
 const getmovie=require("./routes/movies")
 const register=require("./routes/Authentication")
