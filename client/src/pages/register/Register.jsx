@@ -7,63 +7,19 @@ import {registerfunction} from "../../services/Apis";
 
 
 export default function Register() {
-  const [passhow,setPassShow] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [inputdata,setInputdata] = useState({
-    username:"",
-    email:"",
-    password:""
-  });
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
-  const navigate = useNavigate();
-  
-   // setinputvalue
-   const handleChange = (e)=>{
-    const {name,value} = e.target;
-    setInputdata({...inputdata,[name]:value})
-  }
+  const handleStart = () => {
+    setEmail(emailRef.current.value);
+  };
 
-    // register data
-    const handleSubmit = async(e)=>{
-      e.preventDefault();
-      const {username,email,password} = inputdata;
-  
-      if(username === ""){
-  
-        // toast.error("Enter Your Name")
-  
-      }else if(email === ""){
-  
-        // toast.error("Enter Your Email")
-  
-      }else if(!email.includes("@")){
-  
-        // toast.error("Enter Valid Email")
-  
-      }else if(password === ""){
-  
-        // toast.error("Enter Your Password")
-  
-      }else if(password.length < 6){
-  
-        // toast.error("password length minimum 6 character")
-  
-      }else{
-  
-        const response = await registerfunction(inputdata);
-        
-        if(response.status === 200){
-  
-          setInputdata({...inputdata,username:"",email:"",password:""});
-  
-          navigate("/")
-  
-        }else{
-          console.log("error here")
-          // toast.error(response.response.data.error);
-        }
-      }
-    }
+  const handleFinish = () => {
+    setPassword(passwordRef.current.value);
+  };
 
   return (
     <div className="register">
@@ -82,28 +38,31 @@ export default function Register() {
         </div>
       </div>
       <div className="container">
-     
+        <h1>Unlimited movies, TV shows, and much more.</h1>
+        <h2>Watch anything anywhere</h2>
+        <p>
+          Ready to watch? Enter your email to proceed with membership.
+        </p>
 
-      <form>
-                    <h1>SIGN UP</h1>
-                    <input type="text" name="username" id="" onChange={handleChange} placeholder='Enter Your Name' />
-                    <input type="email" name="email" id=""  onChange={handleChange}  placeholder='Enter Your Email Address' />
-                    <input type={!passhow ? "password" : "text"} name="password" id=""  onChange={handleChange}  placeholder='Enter Your password' />
-                
-                    <div onClick={()=>setPassShow(!passhow)} >
-              {!passhow ? "Show" : "Hide"}
-              </div>
-                    <button className="loginButton"onClick={handleSubmit}>Sign Up</button>
-                   
-
-                    <small>
-                    This page is protected by Google reCAPTCHA to ensure you're not a bot.
-                    <b>Learn more</b>
-                    </small>
-                </form>
+        {!email ? (
+          <div className="input">
+          <input type="email" placeholder="email address" ref={emailRef} />
+          <button className="registerButton" onClick={handleStart}>
+            Get Started
+          </button>
+        </div>
+        ) : (
+          <form className="input">
+            <input type="password" placeholder="password" ref={passwordRef} />
+            <button className="registerButton" onClick={handleFinish}>
+              Start
+            </button>
+          </form>
+        )}
 
       </div>
       {/* <ToastContainer /> */}
     </div>
   );
 }
+
