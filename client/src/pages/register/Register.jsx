@@ -1,10 +1,7 @@
 import { useRef } from "react";
 import { useState } from "react";
 import "./register.scss"
-import {Link, useNavigate } from "react-router-dom";
-//import { ToastContainer, toast } from 'react-toastify';
-import {registerfunction} from "../../services/Apis";
-
+import {Link} from 'react-router-dom'
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -16,7 +13,6 @@ export default function Register() {
   const handleStart = () => {
     setEmail(emailRef.current.value);
   };
-
   const handleFinish = () => {
     setPassword(passwordRef.current.value);
   };
@@ -30,39 +26,31 @@ export default function Register() {
         src = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png" 
         alt=""
         />
-
-        
-
-        <button className="loginButton">Sign In</button>
+{/* 
+        <button className="loginButton">Sign In</button> */}
 
         </div>
       </div>
       <div className="container">
-        <h1>Unlimited movies, TV shows, and much more.</h1>
-        <h2>Watch anything anywhere</h2>
-        <p>
-          Ready to watch? Enter your email to proceed with membership.
-        </p>
+        
 
-        {!email ? (
-          <div className="input">
-          <input type="email" placeholder="email address" ref={emailRef} />
-          <button className="registerButton" onClick={handleStart}>
-            Get Started
-          </button>
-        </div>
-        ) : (
-          <form className="input">
-            <input type="password" placeholder="password" ref={passwordRef} />
-            <button className="registerButton" onClick={handleFinish}>
-              Start
-            </button>
-          </form>
-        )}
+      <form>
+                    <h1>SIGN UP</h1>
+                    <input type="name" placeholder="Name" />
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button className="loginButton">Sign Up</button>
+                    <span>
+                        Already a member?   <Link to="/" className='links'>      <b> Sign In </b> </Link>
+                    </span>
+
+                    <small>
+                    This page is protected by Google reCAPTCHA to ensure you're not a bot.
+                    <b>Learn more</b>
+                    </small>
+                </form>
 
       </div>
-      {/* <ToastContainer /> */}
     </div>
   );
 }
-

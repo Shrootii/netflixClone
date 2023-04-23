@@ -4,7 +4,7 @@ import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ListItem from "../listitem/Listitem"
 
-function List() {
+export default function List() {
 
     const [clicknum, setclicknum] =useState(0);
     const [showarrow, setshowarrow] =useState(false);
