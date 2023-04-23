@@ -12,6 +12,7 @@ export default function Register() {
   const handleStart = () => {
     setEmail(emailRef.current.value);
   };
+
   const handleFinish = () => {
     setPassword(passwordRef.current.value);
   };
@@ -31,10 +32,10 @@ export default function Register() {
         </div>
       </div>
       <div className="container">
-        <h1>Unlimited movies, TV shows, and more.</h1>
-        <h2>Watch anywhere. Cancel anytime.</h2>
+        <h1>Unlimited movies, TV shows, and much more.</h1>
+        <h2>Watch anything anywhere</h2>
         <p>
-          Ready to watch? Enter your email to create or restart your membership.
+          Ready to watch? Enter your email to proceed with membership.
         </p>
 
         {!email ? (
@@ -57,3 +58,4 @@ export default function Register() {
     </div>
   );
 }
+
