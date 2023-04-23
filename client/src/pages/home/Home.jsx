@@ -9,7 +9,7 @@ function Home() {
   return (
     <div className="home">
       <Navbar/> 
-      {/* <Featured/> */}
+      <Featured/>
       <img width ="100%" src="https://pbs.twimg.com/media/C1N_8R2WEAABYWK.jpg" alt="" />
       <List/>
       <List/>
